@@ -64,3 +64,40 @@ st.markdown("""
     <meta name="author" content="Shunmugapriyan Murugan">
     <title>TNEA 2024</title>
     """, unsafe_allow_html=True)
+
+st.header('Project Description')
+st.write(
+    """
+    The TNEA Cutoff Compass 2024 project is designed to assist students in navigating the Tamil Nadu Engineering Admissions (TNEA) process. 
+    Our tool provides an easy-to-use interface for students to find information about cutoff scores for various engineering colleges in Tamil Nadu.
+    The main goals of this project are to:
+    - Provide accurate and updated cutoff data for TNEA 2024.
+    - Help students make informed decisions about their college preferences.
+    - Offer a user-friendly platform for accessing TNEA-related information.
+    """
+)
+
+st.header('Fair Use Statement')
+st.write(
+    """
+    This project adheres to the principles of fair use. Fair use is a doctrine in United States copyright law that allows limited use of copyrighted material 
+    without requiring permission from the rights holders. Fair use is a defense against a claim of copyright infringement. It can be applied in a variety of contexts, 
+    including criticism, comment, news reporting, teaching, scholarship, and research. The use of copyrighted material in this project is transformative, 
+    meaning it adds new expression or meaning to the original material and does not infringe on the market for the original work.
+    """
+)
+
+st.header('References')
+st.markdown(
+    """
+    - Follow us on Instagram: 
+      <a href="https://www.instagram.com/travel_with_priyan" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" width="30" height="30">
+      </a>
+    - Check out our YouTube channel: 
+      <a href="https://www.youtube.com/@Travelwithpriyan" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" width="30" height="30">
+      </a>
+    """,
+    unsafe_allow_html=True
+)
