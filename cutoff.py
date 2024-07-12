@@ -37,4 +37,20 @@ if(cutOff != None and community != None):
 
 
 st.title("Last Year Cut-off TNEA 2023")
+if(cutOff != ''):
+    if(minBuffer > 0 or maxBuffer > 0):
+        st.text("Cut-Off:"+ str(float(cutOff)-float(minBuffer)) +"-"+ str(float(cutOff)+float(maxBuffer)))
+    else:
+        st.text("Cut-Off:"+ cutOff)
+if branchName:
+    st.write("Branch Name:")
+    for branch in branchName:
+        st.text(branch)
+if collegeName:
+    st.text("College Name:")
+    for college in collegeName:
+        st.text(college)
+if collegeCode:
+    st.text("College Code:" + str(collegeCode))
+
 st.dataframe(filterdf[selectedColumns],use_container_width=True)
