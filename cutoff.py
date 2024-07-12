@@ -2,10 +2,10 @@ import pandas as pd
 import streamlit as st
 st.set_page_config(layout="wide")
 df = pd.read_csv("cutoff.csv")
-cutOff= st.sidebar.text_input("Enter your Cut-off")
+cutOff= st.sidebar.text_input("Enter Your Cut-Off:")
 community=st.sidebar.selectbox("Community",["OC","BC","BCM","MBC","SC","SCA","ST"],None)
-maxBuffer= st.sidebar.slider("+Buffer",0.0,2.0,0.0,0.25)
-minBuffer= st.sidebar.slider("-Buffer",0.0,15.0,0.0,0.5)
+maxBuffer= st.sidebar.slider("Maximum Range",0.0,2.0,0.0,0.25)
+minBuffer= st.sidebar.slider("Minimum Range",0.0,15.0,0.0,0.5)
 branchName= st.sidebar.multiselect("Branch Name",df['brn'].unique(),None)
 collegeName= st.sidebar.multiselect("College Name",df['con'].unique(),None)
 collegeCode= st.sidebar.selectbox("College Code",df['coc'].unique(),None)
