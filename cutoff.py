@@ -1,15 +1,14 @@
 import pandas as pd
 import streamlit as st
+st.set_page_config(layout="wide")
 df = pd.read_csv("cutoff.csv")
 cutOff= st.sidebar.text_input("Enter your Cut-off")
 community=st.sidebar.selectbox("Community",["OC","BC","BCM","MBC","SC","SCA","ST"],None)
-maxBuffer= st.sidebar.slider("+Buffer",0.0,1.0,0.0,0.25)
-minBuffer= st.sidebar.slider("-Buffer",0.0,10.0,0.0,0.5)
+maxBuffer= st.sidebar.slider("+Buffer",0.0,2.0,0.0,0.25)
+minBuffer= st.sidebar.slider("-Buffer",0.0,15.0,0.0,0.5)
 branchName= st.sidebar.multiselect("Branch Name",df['brn'].unique(),None)
 collegeName= st.sidebar.multiselect("College Name",df['con'].unique(),None)
 collegeCode= st.sidebar.selectbox("College Code",df['coc'].unique(),None)
-
-selectedColumns=['coc', 'con','brn','OC','BC','BCM','MBC','SC','SCA','ST']
 filterdf= df
 
 if(collegeCode != None):
@@ -36,7 +35,7 @@ if(cutOff != None and community != None):
         filterdf= filterdf[(filterdf['ST'] <= (float(cutOff)+float(maxBuffer))) & (filterdf['ST'] >= (float(cutOff)-float(minBuffer)))]
 
 
-st.title("Last Year Cut-off TNEA 2023")
+st.title("Cutoff Compass TNEA 2024")
 if(cutOff != ''):
     if(minBuffer > 0 or maxBuffer > 0):
         st.text("Cut-Off:"+ str(float(cutOff)-float(minBuffer)) +"-"+ str(float(cutOff)+float(maxBuffer)))
@@ -53,4 +52,15 @@ if collegeName:
 if collegeCode:
     st.text("College Code:" + str(collegeCode))
 
-st.dataframe(filterdf[selectedColumns],use_container_width=True)
+filterdf = filterdf.rename(columns={'coc': 'College Code', 'con': 'College Name', 'brn': 'Branch Name'})
+selectedColumns=['College Code', 'College Name','Branch Name','OC','BC','BCM','MBC','SC','SCA','ST']
+
+filterdf.index= filterdf.index+1
+st.dataframe(filterdf[selectedColumns])
+
+st.markdown("""
+    <meta name="description" content="TNEA 2023 - DOTE, Chennai">
+    <meta name="keywords" content="tnea2024,tnea2023,engineering,cutoff,engineering,counselling,bestcollege,tamilnadu">
+    <meta name="author" content="Shunmugapriyan Murugan">
+    <title>TNEA 2024</title>
+    """, unsafe_allow_html=True)
