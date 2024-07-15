@@ -87,7 +87,7 @@ st.write(
     """
 )
 
-st.header('References')
+st.header('Contact Information')
 st.markdown(
     """
     - Follow us on Instagram: 
